@@ -1,0 +1,323 @@
+Fix 2
+Degree
+~1->X
+0->T
+180->Z
+ClrHome
+Disp "HENG'S Delta SOLVER
+Disp "[X]=>UNKNOWN
+Input "SIDE a:",A
+If A!=X
+T+1->T
+Input "SIDE b:",B
+If B!=X
+T+1->T
+Input "SIDE c:",C
+If C!=X
+T+1->T
+If T=3
+Then
+X->D
+X->E
+X->F
+Goto GO
+End
+Input "|<A:",D
+If D!=X
+T+1->T
+If T=3
+Then
+X->E
+X->F
+Goto GO
+End
+Input "|<B:",E
+If E!=X
+T+1->T
+If T=3
+Then
+X->F
+Goto GO
+End
+Input "|<C:",F
+If F!=X
+T+1->T
+Lbl GO
+If T<3 or A+B+C=Z
+Then
+Disp "LACKING DATA
+Return
+End
+~3->T
+If D+E+F=T
+Then
+Pause "SSS:ABC
+cos^-1((BB+CC-AA)/(2BC->D
+cos^-1((CC+AA-BB)/(2CA->E
+Z-E-D->F
+Goto 1A
+End
+If A+B+E=T
+Then
+Pause "AAS:ACc
+Z-F-D->E
+C/sin(F)sin(D->A
+C/sin(F)sin(E->B
+Goto 1A
+End
+If A+B+D=T
+Then
+Pause "AAS:BCc
+Z-F-E->D
+C/sin(F)sin(E->B
+C/sin(F)sin(D->A
+Goto 1A
+End
+If A+D+C=T
+Then
+Pause "AAS:CBb
+Z-F-E->D
+B/sin(E)sin(F->C
+B/sin(E)sin(D->A
+Goto 1A
+End
+If F+A+C=T
+Then
+Pause "AAS:ABb
+Z-D-E->F
+B/sin(E)sin(D->A
+B/sin(E)sin(F->C
+Goto 1A
+End
+If B+C+E=T
+Then
+Pause "AAS:CAa
+Z-F-D->E
+A/sin(D)sin(F->C
+A/sin(D)sin(E->B
+Goto 1A
+End
+If F+B+C=T
+Then
+Pause "AAS:BAa
+Z-D-E->F
+A/sin(D)sin(E->B
+A/sin(D)sin(F->C
+Goto 1A
+End
+If F+B+A=T
+Then
+Pause "ASA:AcB
+Z-D-E->F
+C/sin(F)sin(E->B
+C/sin(F)sin(D->A
+Goto 1A
+End
+If B+C+D=T
+Then
+Pause "ASA:BaC
+Z-F-E->D
+A/sin(D)sin(F->C
+A/sin(D)sin(E->B
+Goto 1A
+End
+If A+C+E=T
+Then
+Pause "ASA:AbC
+Z-F-D->E
+B/sin(E)sin(F->C
+B/sin(E)sin(D->A
+Goto 1A
+End
+If A+F+E=T
+Then
+Pause "SAS:bAc
+sqrt(BB+CC-2BCcos(D->A
+If C>B
+Then
+sin^-1(B/Asin(D->E
+Z-D-E->F
+End
+If B>=C
+Then
+sin^-1(C/Asin(D->F
+Z-D-F->E
+End
+Goto 1A
+End
+If C+E+D=T
+Then
+Pause "SAS:aCb
+sqrt(AA+BB-2ABcos(F->C
+If B>A
+Then
+sin^-1(A/Csin(F->D
+Z-F-D->E
+End
+If A>=B
+Then
+sin^-1(B/Csin(F->E
+Z-F-E->D
+End
+Goto 1A
+End
+If B+F+D=T
+Then
+Pause "SAS:aBc
+sqrt(AA+CC-2ACcos(E->B
+If C>A
+Then
+sin^-1(A/Bsin(E->D
+Z-D-E->F
+End
+If A>=C
+Then
+sin^-1(C/Bsin(E->F
+Z-E-F->D
+End
+Goto 1A
+End
+If F+A+D=T
+Then
+Pause "SSA:cbB
+sin^-1(C/Bsin(E->F
+Z-E-F->D
+Bsin(D)/sin(E->A
+If F>E
+Then
+C->L
+E->N
+B->K
+Z-F->O
+Z-O-E->M
+Bsin(M)/sin(E->J
+Goto 2A
+End
+Goto 1A
+End
+If F+B+E=T
+Then
+Pause "SSA:caA
+sin^-1(C/Asin(D->F
+Z-D-F->E
+Asin(E)/sin(D->B
+If F>D
+Then
+C->L
+D->M
+A->J
+Z-F->O
+Z-O-D->N
+Asin(N)/sin(D->K
+Goto 2A
+End
+Goto 1A
+End
+If D+C+F=T
+Then
+Pause "SSA:abB
+sin^-1(A/Bsin(E->D
+Z-E-D->F
+Bsin(F)/sin(E->C
+If D>E
+Then
+A->J
+E->N
+B->K
+Z-D->M
+Z-M-E->O
+Bsin(O)/sin(E->L
+Goto 2A
+End
+Goto 1A
+End
+If E+C+F=T
+Then
+Pause "SSA:baA
+sin^-1(B/Asin(D->E
+Z-D-E->F
+Asin(F)/sin(D->C
+If D<E
+Then
+B->K
+D->M
+A->J
+Z-E->N
+Z-N-D->O
+Asin(O)/sin(D->L
+Goto 2A
+End
+Goto 1A
+End
+If E+A+D=T
+Then
+Pause "SSA:bcC
+sin^-1(B/Csin(F->E
+Z-E-F->D
+Csin(D)/sin(F->A
+If F<E
+Then
+B->K
+F->O
+C->L
+Z-E->N
+Z-N-F->M
+Csin(M)/sin(F->J
+Goto 2A
+End
+Goto 1A
+End
+If D+B+E=T
+Then
+Pause "SSA:acC
+sin^-1(A/Csin(F->D
+Z-D-F->E
+Csin(E)/sin(F->B
+If F<D
+Then
+A->J
+F->O
+C->L
+Z-D->M
+Z-M-F->N
+Csin(N)/sin(F->K
+Goto 2A
+End
+Goto 1A
+End
+Lbl 1A
+ClrHome
+2^^-1(A+B+C->S
+Disp "A)      A^^o","B)      B^^o","C)      C^^o","Deltasmall1AREA:
+Output(1,3,A
+Output(2,3,B
+Output(3,3,C
+Output(1,11,D
+Output(2,11,E
+Output(3,11,F
+Output(4,8,sqrt(S(S-A)(S-B)(S-C
+Float
+Pause 
+Return
+Lbl 2A
+ClrHome
+Disp "a)      A^^o","b)      B^^o","c)      C^^o","Deltasmall1AREA:","a)      A^^o","b)      B^^o","c)      C^^o
+Output(1,3,A
+Output(2,3,B
+Output(3,3,C
+Output(1,11,D
+Output(2,11,E
+Output(3,11,F
+2^^-1(A+B+C->S
+Output(4,8,sqrt(S(S-A)(S-B)(S-C
+Output(5,3,J
+Output(6,3,K
+Output(7,3,L
+Output(5,11,M
+Output(6,11,N
+Output(7,11,O
+2^^-1(J+K+L->S
+Output(8,1,"Deltasmall2AREA:
+Output(8,8,sqrt(S(S-J)(S-K)(S-L)
+Float
+Pause 
